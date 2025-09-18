@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -8,13 +9,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="src/css/style.css">
 </head>
+
 <body>
     <header class="header_bar">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-2 d-flex align-items-center">
                     <div class="d-flex align-items-center">
-                        <div class="logo d-flex align-items-center justify-content-center text-white fw-bold" style="font-size: 12px;">
+                        <div class="logo d-flex align-items-center justify-content-center text-white fw-bold"
+                            style="font-size: 12px;">
                             RACING<br>UNDERDOG™
                         </div>
                     </div>
@@ -45,12 +48,18 @@
                 </div>
                 <nav class="flex-grow-1">
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-people-fill"></i> Group Session</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-display"></i> Displays</a></li>
-                        <li class="nav-item"><a class="nav-link" href="result.html"><i class="bi bi-bar-chart-line-fill"></i> Results</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-cpu"></i> Device Control</a></li>
-                        <li class="nav-item"><a class="nav-link" href="kartSetup.html"><i class="bi bi-sliders2"></i> KartSetup</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-gear-fill"></i> System Setting</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-people-fill"></i>
+                                Group Session</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-display"></i> Displays</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="result.html"><i
+                                    class="bi bi-bar-chart-line-fill"></i> Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-cpu"></i> Device Control</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="kartSetup.html"><i class="bi bi-sliders2"></i>
+                                KartSetup</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-gear-fill"></i> System
+                                Setting</a></li>
                     </ul>
                 </nav>
                 <div class="version-info">
@@ -64,25 +73,39 @@
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs" id="settingsTabs" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="device-tab" data-bs-toggle="tab" data-bs-target="#device" type="button" role="tab" aria-controls="device" aria-selected="true">Device Setting</button>
+                                <button class="nav-link active" id="device-tab" data-bs-toggle="tab"
+                                    data-bs-target="#device" type="button" role="tab" aria-controls="device"
+                                    aria-selected="true">Device Setting</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="racing-tab" data-bs-toggle="tab" data-bs-target="#racing" type="button" role="tab" aria-controls="racing" aria-selected="false">Racing Setting</button>
+                                <button class="nav-link" id="racing-tab" data-bs-toggle="tab" data-bs-target="#racing"
+                                    type="button" role="tab" aria-controls="racing" aria-selected="false">Racing
+                                    Setting</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="audio-tab" data-bs-toggle="tab" data-bs-target="#audio" type="button" role="tab" aria-controls="audio" aria-selected="false">Audio Setting</button>
+                                <button class="nav-link" id="audio-tab" data-bs-toggle="tab" data-bs-target="#audio"
+                                    type="button" role="tab" aria-controls="audio" aria-selected="false">Audio
+                                    Setting</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="server-tab" data-bs-toggle="tab" data-bs-target="#server" type="button" role="tab" aria-controls="server" aria-selected="false">Server Setting</button>
+                                <button class="nav-link" id="server-tab" data-bs-toggle="tab" data-bs-target="#server"
+                                    type="button" role="tab" aria-controls="server" aria-selected="false">Server
+                                    Setting</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="store-tab" data-bs-toggle="tab" data-bs-target="#store" type="button" role="tab" aria-controls="store" aria-selected="false">Store Setting</button>
+                                <button class="nav-link" id="store-tab" data-bs-toggle="tab" data-bs-target="#store"
+                                    type="button" role="tab" aria-controls="store" aria-selected="false">Store
+                                    Setting</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="udp-tab" data-bs-toggle="tab" data-bs-target="#udp" type="button" role="tab" aria-controls="udp" aria-selected="false">UDP Network Segment Setting</button>
+                                <button class="nav-link" id="udp-tab" data-bs-toggle="tab" data-bs-target="#udp"
+                                    type="button" role="tab" aria-controls="udp" aria-selected="false">UDP Network
+                                    Segment Setting</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="zone-tab" data-bs-toggle="tab" data-bs-target="#zone" type="button" role="tab" aria-controls="zone" aria-selected="false">Zone Speed Limit Setting</button>
+                                <button class="nav-link" id="zone-tab" data-bs-toggle="tab" data-bs-target="#zone"
+                                    type="button" role="tab" aria-controls="zone" aria-selected="false">Zone Speed Limit
+                                    Setting</button>
                             </li>
                         </ul>
                     </div>
@@ -181,13 +204,15 @@
                                 <div class="mb-4">
                                     <label class="form-label d-block">Start Light Type</label>
                                     <div class="form-check mb-2">
-                                        <input class="form-check-input" type="radio" name="startLight" id="departNoLight" checked>
+                                        <input class="form-check-input" type="radio" name="startLight"
+                                            id="departNoLight" checked>
                                         <label class="form-check-label" for="departNoLight">
                                             Depart Without Light
                                         </label>
                                     </div>
                                     <div class="form-check mb-2">
-                                        <input class="form-check-input" type="radio" name="startLight" id="externalLight">
+                                        <input class="form-check-input" type="radio" name="startLight"
+                                            id="externalLight">
                                         <label class="form-check-label" for="externalLight">
                                             Use External Headlights to Depart
                                         </label>
@@ -217,13 +242,203 @@
                         <!-- Racing Setting Tab -->
                         <div class="tab-pane fade" id="racing" role="tabpanel" aria-labelledby="racing-tab">
                             <h5>Racing Setting</h5>
+                            <form action="#" method="POST">
+                                <!-- Session Type -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label d-block fw-semibold">Session Type</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="session_type"
+                                                id="group_session" value="group" checked>
+                                            <label class="form-check-label" for="group_session">
+                                                Group Session
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="session_type"
+                                                id="single_session" value="single">
+                                            <label class="form-check-label" for="single_session">
+                                                Single Session
+                                            </label>
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
 
+                                <!-- Additional Options -->
+                                <!-- <div class="row mb-4"> -->
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="voice_broadcast"
+                                                name="voice_broadcast" checked>
+                                            <label class="form-check-label" for="voice_broadcast">
+                                                Voice Broadcast
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="auto_power_off"
+                                                name="auto_power_off">
+                                            <label class="form-check-label" for="auto_power_off">
+                                                Automatic power-off
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="auto_departure"
+                                                name="auto_departure">
+                                            <label class="form-check-label" for="auto_departure">
+                                                Automatic departure of ground sensing line
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="auto_start"
+                                                name="auto_start">
+                                            <label class="form-check-label" for="auto_start">
+                                                Automatically start of ground sensing line
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Launch Mode -->
+                                <div class="launch-mode-section">
+                                    <label class="form-label d-block fw-semibold mb-3">Launch Mode</label>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" type="radio" name="launch_mode"
+                                                    id="by_time" value="time" checked>
+                                                <label class="form-check-label fw-semibold" for="by_time">
+                                                    By Time
+                                                </label>
+                                            </div>
+
+                                            <div class="border rounded p-3 mb-3" style="background-color: #e8f5e8;">
+                                                <div class="fw-semibold mb-2">By Time</div>
+                                                <div class="time-input-group">
+                                                    <input type="number" class="form-control time-input" value="10"
+                                                        min="0" name="time_minutes">
+                                                    <span>min</span>
+                                                </div>
+                                                <div class="time-input-group">
+                                                    <span>voice broadcast : Last</span>
+                                                </div>
+                                                <div class="time-input-group">
+                                                    <input type="number" class="form-control time-input" value="60"
+                                                        min="0" name="time_seconds">
+                                                    <span>sec</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" type="radio" name="launch_mode"
+                                                    id="by_laps" value="laps">
+                                                <label class="form-check-label fw-semibold" for="by_laps">
+                                                    By Lap(s)
+                                                </label>
+                                            </div>
+
+                                            <div class="border rounded p-3 mb-3">
+                                                <div class="fw-semibold mb-2">By Lap(s)</div>
+                                                <div class="time-input-group">
+                                                    <input type="number" class="form-control time-input" value=""
+                                                        min="0" name="laps_count">
+                                                    <span>lap(s)</span>
+                                                </div>
+                                                <div class="time-input-group">
+                                                    <span>voice broadcast : Last</span>
+                                                </div>
+                                                <div class="time-input-group">
+                                                    <input type="number" class="form-control time-input" value=""
+                                                        min="0" name="laps_final">
+                                                    <span>lap(s)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Interval -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Interval</label>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="number" class="form-control" style="width: 80px;" value="5"
+                                                min="0" name="interval">
+                                            <span>seconds, the ground sensing line is not sensitive</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Starting Rule -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <label class="form-label d-block fw-semibold">Starting Rule</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="starting_rule"
+                                                id="after_start_button" value="button" checked>
+                                            <label class="form-check-label" for="after_start_button">
+                                                After clicking the Start button
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="starting_rule"
+                                                id="first_pass" value="card_reader">
+                                            <label class="form-check-label" for="first_pass">
+                                                First pass through the card reader
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Track Length -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Track length</label>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="number" class="form-control" style="width: 100px;" value="100"
+                                                min="0" name="track_length">
+                                            <span>m</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ranking Rule -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <label class="form-label d-block fw-semibold">Ranking Rule</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="ranking_rule"
+                                                id="best_lap_timing" value="best_lap">
+                                            <label class="form-check-label" for="best_lap_timing">
+                                                Best lap Timing
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="ranking_rule"
+                                                id="total_laps" value="total_laps" checked>
+                                            <label class="form-check-label" for="total_laps">
+                                                Total Laps
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Save Button -->
+                                <div class="row">
+                                    <div class="col-12 text-end">
+                                        <button type="submit" class="btn btn-success save-btn px-4">Save</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
 
                         <!-- Audio Setting Tab -->
                         <div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab">
                             <h5>Audio Setting</h5>
-                           
+
                         </div>
 
                         <!-- Server Setting Tab -->
@@ -233,12 +448,12 @@
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <label class="form-label">service</label>
-                                            <select class="form-select">
-                                                <option>Select</option>
-                                                <option>General Service</option>
-                                                <option>test</option>
-                                                <option>test</option>
-                                            </select>
+                                        <select class="form-select">
+                                            <option>Select</option>
+                                            <option>General Service</option>
+                                            <option>test</option>
+                                            <option>test</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row mb-4">
@@ -248,13 +463,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Domain Name Address</label>
-                                        <input type="text" class="form-control" placeholder="https://abc.com" >
+                                        <input type="text" class="form-control" placeholder="https://abc.com">
                                     </div>
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <label class="form-label">WebSocket Address</label>
-                                        <input type="text" class="form-control" name="websocket" placeholder="168.176.200.2">
+                                        <input type="text" class="form-control" name="websocket"
+                                            placeholder="168.176.200.2">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label"> System Logo</label>
@@ -270,19 +486,19 @@
                         <!-- Store Setting Tab -->
                         <div class="tab-pane fade" id="store" role="tabpanel" aria-labelledby="store-tab">
                             <h5>Store Setting</h5>
-                            
+
                         </div>
 
                         <!-- UDP Network Segment Setting Tab -->
                         <div class="tab-pane fade" id="udp" role="tabpanel" aria-labelledby="udp-tab">
                             <h5>UDP Network Segment Setting</h5>
-                            
+
                         </div>
 
                         <!-- Zone Speed Limit Setting Tab -->
                         <div class="tab-pane fade" id="zone" role="tabpanel" aria-labelledby="zone-tab">
                             <h5>Zone Speed Limit Setting</h5>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -295,12 +511,12 @@
         // Live Clock
         function updateClock() {
             const now = new Date();
-            const dateStr = now.toLocaleDateString("en-US", { 
-                year: "numeric", 
-                month: "long", 
-                day: "numeric" 
+            const dateStr = now.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric"
             });
-            const timeStr = now.toLocaleTimeString("en-US", { 
+            const timeStr = now.toLocaleTimeString("en-US", {
                 hour12: false,
                 hour: '2-digit',
                 minute: '2-digit',
@@ -314,16 +530,16 @@
 
         // Form submission handlers
         document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 // Show success message
                 const button = this.querySelector('button[type="submit"]');
                 const originalText = button.textContent;
                 button.textContent = 'Saved!';
                 button.classList.remove('btn-success');
                 button.classList.add('btn-outline-success');
-                
+
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.classList.remove('btn-outline-success');
@@ -335,8 +551,8 @@
         // Socket toggle functionality
         const socketToggle = document.querySelector('.switch input');
         const socketSlider = document.querySelector('.slider');
-        
-        socketToggle.addEventListener('change', function() {
+
+        socketToggle.addEventListener('change', function () {
             if (this.checked) {
                 console.log('Socket connected');
             } else {
@@ -345,4 +561,5 @@
         });
     </script>
 </body>
+
 </html>

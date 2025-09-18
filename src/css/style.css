@@ -283,10 +283,10 @@ h5 {
 .btn_custom {
     background: #2d5a2d;
     color: #fff;
-    border: none;
+    /* border: none;
     padding: 12px 24px;
     border-radius: 6px;
-    font-weight: 600;
+    font-weight: 600; */
 }
 
 .btn_custom:hover {

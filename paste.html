@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Settings</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .settings-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .launch-mode-section {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .time-input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .time-input {
+            width: 80px;
+        }
+        .save-btn {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .save-btn:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-container">
+        <h2 class="section-title">Racing Setting</h2>
+        
+        <form action="#" method="POST">
+            <!-- Session Type -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label d-block fw-semibold">Session Type</label>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="session_type" id="group_session" value="group" checked>
+                        <label class="form-check-label" for="group_session">
+                            Group Session
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="session_type" id="single_session" value="single">
+                        <label class="form-check-label" for="single_session">
+                            Single Session
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice Broadcast -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="voice_broadcast" name="voice_broadcast" checked>
+                        <label class="form-check-label fw-semibold" for="voice_broadcast">
+                            Voice Broadcast
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Options -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="auto_power_off" name="auto_power_off">
+                        <label class="form-check-label" for="auto_power_off">
+                            Automatic power-off
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="auto_departure" name="auto_departure">
+                        <label class="form-check-label" for="auto_departure">
+                            Automatic departure of ground sensing line
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="auto_start" name="auto_start">
+                        <label class="form-check-label" for="auto_start">
+                            Automatically start of ground sensing line
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Launch Mode -->
+            <div class="launch-mode-section">
+                <label class="form-label d-block fw-semibold mb-3">Launch Mode</label>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="launch_mode" id="by_time" value="time" checked>
+                            <label class="form-check-label fw-semibold" for="by_time">
+                                By Time
+                            </label>
+                        </div>
+                        
+                        <div class="border rounded p-3 mb-3" style="background-color: #e8f5e8;">
+                            <div class="fw-semibold mb-2">By Time</div>
+                            <div class="time-input-group">
+                                <input type="number" class="form-control time-input" value="10" min="0" name="time_minutes">
+                                <span>min</span>
+                            </div>
+                            <div class="time-input-group">
+                                <span>voice broadcast : Last</span>
+                            </div>
+                            <div class="time-input-group">
+                                <input type="number" class="form-control time-input" value="60" min="0" name="time_seconds">
+                                <span>sec</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="launch_mode" id="by_laps" value="laps">
+                            <label class="form-check-label fw-semibold" for="by_laps">
+                                By Lap(s)
+                            </label>
+                        </div>
+                        
+                        <div class="border rounded p-3 mb-3">
+                            <div class="fw-semibold mb-2">By Lap(s)</div>
+                            <div class="time-input-group">
+                                <input type="number" class="form-control time-input" value="" min="0" name="laps_count">
+                                <span>lap(s)</span>
+                            </div>
+                            <div class="time-input-group">
+                                <span>voice broadcast : Last</span>
+                            </div>
+                            <div class="time-input-group">
+                                <input type="number" class="form-control time-input" value="" min="0" name="laps_final">
+                                <span>lap(s)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interval -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Interval</label>
+                    <div class="d-flex align-items-center gap-2">
+                        <input type="number" class="form-control" style="width: 80px;" value="5" min="0" name="interval">
+                        <span>seconds, the ground sensing line is not sensitive</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Starting Rule -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <label class="form-label d-block fw-semibold">Starting Rule</label>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="starting_rule" id="after_start_button" value="button" checked>
+                        <label class="form-check-label" for="after_start_button">
+                            After clicking the Start button
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="starting_rule" id="first_pass" value="card_reader">
+                        <label class="form-check-label" for="first_pass">
+                            First pass through the card reader
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track Length -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Track length</label>
+                    <div class="d-flex align-items-center gap-2">
+                        <input type="number" class="form-control" style="width: 100px;" value="100" min="0" name="track_length">
+                        <span>m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ranking Rule -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <label class="form-label d-block fw-semibold">Ranking Rule</label>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="ranking_rule" id="best_lap_timing" value="best_lap">
+                        <label class="form-check-label" for="best_lap_timing">
+                            Best lap Timing
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="ranking_rule" id="total_laps" value="total_laps" checked>
+                        <label class="form-check-label" for="total_laps">
+                            Total Laps
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <div class="row">
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-success save-btn px-4">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle launch mode sections based on selection
+        document.querySelectorAll('input[name="launch_mode"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // You can add logic here to show/hide sections or update UI
+                console.log('Launch mode changed to:', this.value);
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    // Handle multiple values (like checkboxes)
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            console.log('Form data:', data);
+            alert('Settings saved successfully!');
+        });
+    </script>
+</body>
+</html>
