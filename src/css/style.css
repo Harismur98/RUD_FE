@@ -403,6 +403,17 @@ h5 {
     flex-direction: column;
 }
 
+.tab-pane {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    display: none;
+}
+
+.tab-pane.active {
+    display: flex;
+}
+
 .results_table {
     width: 100%;
     margin: 0;
@@ -449,6 +460,8 @@ h5 {
     padding: 20px;
     border-top: 1px solid #e9ecef;
     background: #fff;
+    margin-top: auto;
+    flex-shrink: 0;
 }
 
 .pagination_number {

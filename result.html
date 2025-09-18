@@ -75,16 +75,16 @@
                         <div class="mode_selector">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">Session Results</a>
+                                    <a class="nav-link" href="#" data-tab="session-results">Session Results</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Personal Results</a>
+                                    <a class="nav-link active" href="#" data-tab="personal-results">Personal Results</a>
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- Filter section -->
-                        <div class="results_filter_section">
+                        <!-- Session Results Filter -->
+                        <div class="results_filter_section tab-pane" id="session-results-filters">
                             <div class="filter_row">
                                 <div class="filter_group">
                                     <label>Racing Date</label>
@@ -106,43 +106,113 @@
                                 <div class="filter_actions">
                                     <button class="btn btn_filter btn_search">Search</button>
                                     <button class="btn btn_filter btn_reset">Reset</button>
-                                    <button class="btn btn_filter btn_batch">batch Sync</button>
+                                    <button class="btn btn_filter btn_search">batch Sync</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Results Filter -->
+                        <div class="results_filter_section tab-pane active" id="personal-results-filters">
+                            <div class="filter_row">
+                                <div class="filter_group">
+                                    <label>Racing Mode</label>
+                                    <select class="form-control">
+                                        <option value="all" selected>All</option>
+                                        <option value="time-attack">Time Attack</option>
+                                        <option value="practice">Practice</option>
+                                        <option value="qualifying">Qualifying</option>
+                                        <option value="race">Race</option>
+                                    </select>
+                                </div>
+                                <div class="filter_group">
+                                    <label>Racing Date</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                <div class="filter_group">
+                                    <label>Starting time</label>
+                                    <input type="time" class="form-control">
+                                </div>
+                                <div class="time_separator">—</div>
+                                <div class="filter_group">
+                                    <label>End Time</label>
+                                    <input type="time" class="form-control">
+                                </div>
+                                <div class="filter_actions">
+                                    <button class="btn btn_filter btn_search">Search</button>
+                                    <button class="btn btn_filter btn_reset">Reset</button>
+                                </div>
+                            </div>
+                            <div class="filter_row" style="margin-top: 15px;">
+                                <div class="filter_group">
+                                    <label>Driver</label>
+                                    <input type="text" class="form-control" placeholder="Enter driver name">
+                                </div>
+                                <div class="filter_group">
+                                    <label>Kart</label>
+                                    <input type="text" class="form-control" placeholder="Enter kart number">
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="card_body app_card_body">
-                        <div class="results_table_wrapper">
-                            <table class="table table-responsive results_table">
-                                <thead>
-                                    <tr>
-                                        <th>Tick</th>
-                                        <th>Session No.</th>
-                                        <th>Starting time</th>
-                                        <th>End Time</th>
-                                        <th>Racing Mode</th>
-                                        <th>Time/Lap(s)</th>
-                                        <th>Options</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <!-- <td colspan="7" class="no_data_message">No data</td> -->
-                                        <td>yes</td>
-                                        <td>2</td>
-                                        <td>02:02.001</td>
-                                        <td>02:03.001</td>
-                                        <td>Time attack</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <!-- Session Results Table -->
+                        <div class="tab-pane" id="session-results-content">
+                            <div class="results_table_wrapper">
+                                <table class="table table-responsive results_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tick</th>
+                                            <th>Session No.</th>
+                                            <th>Starting time</th>
+                                            <th>End Time</th>
+                                            <th>Racing Mode</th>
+                                            <th>Time/Lap(s)</th>
+                                            <th>Options</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="7" class="no_data_message">No data</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="results_pagination">
+                                <a href="#" class="pagination_number active">1</a>
+                            </div>
                         </div>
 
-                        <div class="results_pagination">
-                            <a href="#" class="pagination_number active">1</a>
+                        <!-- Personal Results Table -->
+                        <div class="tab-pane active" id="personal-results-content">
+                            <div class="results_table_wrapper">
+                                <table class="table table-responsive results_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Session No.</th>
+                                            <th>Start Time</th>
+                                            <th>Racing Mode</th>
+                                            <th>Kart</th>
+                                            <th>Driver</th>
+                                            <th>Best Tm</th>
+                                            <th>Finish laps</th>
+                                            <th>Laps</th>
+                                            <th>Total Tm</th>
+                                            <th>Options</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="10" class="no_data_message">No data</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="results_pagination">
+                                <a href="#" class="pagination_number active">1</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -166,8 +236,26 @@
         document.querySelectorAll('.nav-tabs .nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // Remove active class from all tabs
                 document.querySelectorAll('.nav-tabs .nav-link').forEach(l => l.classList.remove('active'));
+                // Add active class to clicked tab
                 this.classList.add('active');
+                
+                // Get the tab target
+                const tabTarget = this.getAttribute('data-tab');
+                
+                // Hide all tab panes
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                
+                // Show the appropriate filter and content sections
+                if (tabTarget === 'session-results') {
+                    document.getElementById('session-results-filters').classList.add('active');
+                    document.getElementById('session-results-content').classList.add('active');
+                } else if (tabTarget === 'personal-results') {
+                    document.getElementById('personal-results-filters').classList.add('active');
+                    document.getElementById('personal-results-content').classList.add('active');
+                }
             });
         });
     </script>
