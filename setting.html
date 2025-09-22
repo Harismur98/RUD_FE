@@ -313,7 +313,7 @@
                                                 </label>
                                             </div>
 
-                                            <div class="border rounded p-3 mb-3" style="background-color: #e8f5e8;">
+                                            <div class="border rounded p-3 mb-3 option-container selected-option" id="time-container">
                                                 <div class="fw-semibold mb-2">By Time</div>
                                                 <div class="time-input-group">
                                                     <input type="number" class="form-control time-input" value="10"
@@ -340,7 +340,7 @@
                                                 </label>
                                             </div>
 
-                                            <div class="border rounded p-3 mb-3">
+                                            <div class="border rounded p-3 mb-3 option-container" id="laps-container">
                                                 <div class="fw-semibold mb-2">By Lap(s)</div>
                                                 <div class="time-input-group">
                                                     <input type="number" class="form-control time-input" value=""
@@ -681,6 +681,26 @@
                 console.log('Socket disconnected');
             }
         });
+
+        const radioButtons = document.querySelectorAll('input[name="launch_mode"]');
+        const optionContainers = document.querySelectorAll('.option-container');
+
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Remove selected class from all containers
+                optionContainers.forEach(container => {
+                    container.classList.remove('selected-option');
+                });
+                
+                // Add selected class to the corresponding container
+                if (this.value === 'time') {
+                    document.getElementById('time-container').classList.add('selected-option');
+                } else if (this.value === 'laps') {
+                    document.getElementById('laps-container').classList.add('selected-option');
+                }
+            });
+        });
+    
     </script>
 </body>
 
