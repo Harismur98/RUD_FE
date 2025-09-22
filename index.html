@@ -64,10 +64,10 @@
                     <div class="card-header card_header_with_controls bg-white d-flex justify-content-between align-items-center">
                         <span class=" fw-bold">Queuing (0)</span>
                         <div >
-                            <span class="flag-light"></span>
-                            <span class="flag-light"></span>
-                            <span class="flag-light"></span>
-                            <span class="flag-light"></span>
+                            <span class="flag green"></span>
+                            <span class="flag yellow"></span>
+                            <span class="flag red"></span>
+                            <span class="flag red"></span>
                             <button class="btn btn-sm btn-dark ms-2">Flag Light Control</button>
                         </div>
                     </div>
@@ -75,7 +75,72 @@
                     <div class="card_body app_card_body main_content_layout">
                         <div class="row g-0 h-100">
                             <!-- Main content -->
-                            <div class="col-lg-8 col-md-7 col-12 thick_border_end">
+                            <div class="col-lg-6 col-md-6 col-12 thick_border_end">
+                                <!-- Running Session Status Bar -->
+                                <!-- <div class="session_status_bar">
+                                    <div class="session_info">
+                                        <span>1#</span>
+                                        <span class="session_badge running">Running</span>
+                                        <span class="session_details">06:23 | Driver: 2</span>
+                                        <span class="session_badge red">15 min</span>
+                                        <div class="session_icons">
+                                            <i class="bi bi-mic"></i>
+                                            <i class="bi bi-flag-fill"></i>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-dark btn-sm finish_btn">Finish</button>
+                                </div> -->
+
+                                <!-- Kart Display Section -->
+                                <!-- <div class="kart_display_section">
+                                    <div class="kart_display_grid">
+                                        <div class="kart_display_card">
+                                            <div class="kart_icon">
+                                                <i class="bi bi-flag"></i>
+                                            </div>
+                                            <div class="kart_display_number">Kart 130</div>
+                                            <div class="kart_display_driver">Driver</div>
+                                        </div>
+                                        <div class="kart_display_card">
+                                            <div class="kart_icon">
+                                                <i class="bi bi-flag"></i>
+                                            </div>
+                                            <div class="kart_display_number">Kart 101</div>
+                                            <div class="kart_display_driver">Driver</div>
+                                        </div>
+                                        <div class="kart_display_card">
+                                            <div class="kart_icon">
+                                                <i class="bi bi-flag"></i>
+                                            </div>
+                                            <div class="kart_display_number">Kart 101</div>
+                                            <div class="kart_display_driver">Driver</div>
+                                        </div>
+                                        <div class="kart_display_card">
+                                            <div class="kart_icon">
+                                                <i class="bi bi-flag"></i>
+                                            </div>
+                                            <div class="kart_display_number">Kart 101</div>
+                                            <div class="kart_display_driver">Driver</div>
+                                        </div>
+                                        <div class="kart_display_card">
+                                            <div class="kart_icon">
+                                                <i class="bi bi-flag"></i>
+                                            </div>
+                                            <div class="kart_display_number">Kart 101</div>
+                                            <div class="kart_display_driver">Driver</div>
+                                        </div>
+                                        <div class="kart_display_card">
+                                            <div class="kart_icon">
+                                                <i class="bi bi-flag"></i>
+                                            </div>
+                                            <div class="kart_display_number">Kart 101</div>
+                                            <div class="kart_display_driver">Driver</div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                
+
                                 <div class="no_data_wrap">
                                     <div class="no_data_center">
                                         <p class="text-muted m-0">No drivers queued.</p>
@@ -87,7 +152,7 @@
                             </div>
                         
                             <!-- Ranking panel -->
-                            <div class="col-lg-4 col-md-5 col-12">
+                            <div class="col-lg-6 col-md-6 col-12">
                                 <div class="ranking_header">Real-time Ranking</div>
                                 <div class="p-3 pt-2">
                                     <table class="table table-sm table-bordered mb-0 text-center">
@@ -98,16 +163,55 @@
                                                 <th>Driver</th>
                                                 <th>Best Tm</th>
                                                 <th>Laps</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td colspan="5" class="text-muted">No data</td>
-                                                <!-- <td>1</td>
+                                                <!-- <td colspan="6" class="text-muted">No data</td> -->
+                                                <td>1</td>
                                                 <td>12</td>
                                                 <td>Me</td>
                                                 <td>1.001</td>
-                                                <td>2</td> -->
+                                                <td>2</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                                                        Action
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li>
+                                                            <input type="number" step="0.001" class="form-control form-control-sm" placeholder="Penalty (sec)">
+                                                        </li>
+                                                        <li><hr class="dropdown-divider"></li>
+                                                        <li><a class="dropdown-item text-warning" href="#">Disqualified (DQ)</a></li>
+                                                        <li><a class="dropdown-item text-danger" href="#">Did Not Finish (DNF)</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td>2</td>
+                                                <td>13</td>
+                                                <td>Ali</td>
+                                                <td>1.201</td>
+                                                <td>2</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                                                        Action
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li>
+                                                            <input type="number" step="0.001" class="form-control form-control-sm" placeholder="Penalty (sec)">
+                                                        </li>
+                                                        <li><hr class="dropdown-divider"></li>
+                                                        <li><a class="dropdown-item text-warning" href="#">Disqualified (DQ)</a></li>
+                                                        <li><a class="dropdown-item text-danger" href="#">Did Not Finish (DNF)</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -119,7 +223,7 @@
             </main>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Live Clock
         function updateClock() {

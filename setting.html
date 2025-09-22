@@ -438,7 +438,56 @@
                         <!-- Audio Setting Tab -->
                         <div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab">
                             <h5>Audio Setting</h5>
-
+                            <form >
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label"> Pre Race Audio</label>
+                                            <select class="form-select">
+                                                <option>Select</option>
+                                                <option>General Service</option>
+                                                <option>test</option>
+                                                <option>test</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label"> During Race Audio</label>
+                                        
+                                            <select class="form-select">
+                                                <option>Select</option>
+                                                <option>General Service</option>
+                                                <option>test</option>
+                                                <option>test</option>
+                                            </select>  
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"></label><br>
+                                        <input type="checkbox" class="form-check-input"> Enable
+                                    </div>
+                                </div>
+                                <div class="row md-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label"> After Race Audio</label>
+                                            <select class="form-select">
+                                                <option>Select</option>
+                                                <option>General Service</option>
+                                                <option>test</option>
+                                                <option>test</option>
+                                            </select>
+                                            
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"></label><br>
+                                        <input type="checkbox" class="form-check-input"> Enable
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-end">
+                                        <button type="submit" class="btn btn-success save-btn px-4">Save</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
 
                         <!-- Server Setting Tab -->
@@ -517,13 +566,61 @@
                         <!-- UDP Network Segment Setting Tab -->
                         <div class="tab-pane fade" id="udp" role="tabpanel" aria-labelledby="udp-tab">
                             <h5>UDP Network Segment Setting</h5>
-
+                            <form >
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <select class="form-select">
+                                            <option>Select</option>
+                                            <option>General Service</option>
+                                            <option>test</option>
+                                            <option>test</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-success px-4">Save</button>
+                                </div>
+                            </form>
                         </div>
 
                         <!-- Zone Speed Limit Setting Tab -->
                         <div class="tab-pane fade" id="zone" role="tabpanel" aria-labelledby="zone-tab">
                             <h5>Zone Speed Limit Setting</h5>
-
+                            <form action="">
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Interval Between Sending Speed Limit Commands(200ms-1000ms):</label>
+                                        <input type="text" class="form-control" name="interval" placeholder="0">
+                                    </div>
+                                </div>
+                                <div class="row mb-6">
+                                    <div class="col-md-8">
+                                        <div class="results_table_wrapper">
+                                            <table class="table table-responsive results_table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>RFID</th>
+                                                        <th>Zone Name</th>
+                                                        <th>Limiting Distance</th>
+                                                        <th>Limitng Level</th>
+                                                        <th>Limiting Value</th>
+                                                        <th>Enable</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="6" class="no_data_message">No data</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" style="color: green;">Add line</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-success px-4">Save</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

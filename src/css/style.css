@@ -14,7 +14,25 @@ body { margin: 0; display: flex; flex-direction: column; background: #f0f0f0; fo
 }
 .logo { width: 180px; height: 40px; object-fit: contain; background: #4b5563; border-radius: 4px; }
 
-.flag-light { width: 16px; height: 16px; border-radius: 50%; background: #e74c3c; display: inline-block; margin-right: 8px; }
+.flag {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.flag.red {
+  background: #e74c3c;
+}
+
+.flag.green {
+  background: #219e08;
+}
+
+.flag.yellow {
+  background: #f1f504;
+}
 .app_shell { flex: 1; min-height: 0; overflow: hidden; }
 .app_row { display: flex; height: 100%; min-height: 0; }
 
@@ -110,6 +128,7 @@ body { margin: 0; display: flex; flex-direction: column; background: #f0f0f0; fo
     padding: 24px;
     background: #fff;
     border-radius: 0 0 12px 12px;
+    overflow-y: auto;
 }
 
 .form-label {
@@ -258,6 +277,8 @@ h5 {
 
 .thick_border_end {
     border-right: 2px solid #e9ecef;
+    position: relative;
+    padding-bottom: 60px;
 }
 
 .no_data_wrap {
@@ -267,7 +288,17 @@ h5 {
     justify-content: center;
     height: 100%;
     width: 100%;
-    position: relative;
+    /* position: relative; */
+}
+
+/* Override no_data_wrap when there's active session content */
+.thick_border_end:has(.session_status_bar) .no_data_wrap {
+    display: block;
+    height: auto;
+    align-items: normal;
+    justify-content: normal;
+    position: static;
+    height: 0%;
 }
 
 .no_data_center {
@@ -278,15 +309,13 @@ h5 {
 .add_session_bar {
     position: absolute;
     bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .btn_custom {
     background: #2d5a2d;
     color: #fff;
-    /* border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: 600; */
 }
 
 .btn_custom:hover {
@@ -301,6 +330,133 @@ h5 {
     font-weight: 600;
     color: #333;
     font-size: 14px;
+}
+
+/* Session Status Bar */
+.session_status_bar {
+    /* background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%); */
+    border: 1px;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.session_info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.session_badge {
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.session_badge.running {
+    background: #28a745;
+    color: white;
+}
+
+.session_badge.red {
+    background: #fd7878;
+    color: white;
+}
+
+.session_details {
+    font-size: 14px;
+    color: #495057;
+    font-weight: 500;
+}
+
+.session_icons {
+    display: flex;
+    gap: 8px;
+}
+
+.session_icons i {
+    color: #6c757d;
+    font-size: 16px;
+}
+
+.finish_btn {
+    background: #495057;
+    border-color: #495057;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.finish_btn:hover {
+    background: #343a40;
+    border-color: #343a40;
+}
+
+/* Kart Display Section */
+.kart_display_section {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(110deg, #3c8d27 0%, #c9fdc4 100%);
+    margin: 0 20px 20px 20px;
+    border-radius: 12px;
+    border: 1px solid #d1ecf1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.kart_display_grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.kart_display_card {
+    background: white;
+    border: 2px;
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(23, 162, 184, 0.1);
+    flex: 1 1 140px;
+    min-width: 120px;
+    max-width: 180px;
+}
+
+.kart_display_card:hover {
+    /* transform: translateY(-2px); */
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.2);
+    border-color: #138496;
+}
+
+.kart_icon {
+    margin-bottom: 8px;
+}
+
+.kart_icon i {
+    font-size: 28px;
+    color: #000000;
+}
+
+.kart_display_number {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.kart_display_driver {
+    font-size: 12px;
+    color: #6c757d;
+    font-weight: 500;
 }
 
 /* Results page specific styles */
@@ -401,12 +557,12 @@ h5 {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .tab-pane {
     display: flex;
     flex-direction: column;
-    /* height: 100%; */
     display: none;
 }
 
@@ -417,6 +573,7 @@ h5 {
 .results_table {
     width: 100%;
     margin: 0;
+    flex: 1;
 }
 
 .results_table thead th {
