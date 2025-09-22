@@ -113,6 +113,29 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="kart_group_item">
+                                <div class="group_header">
+                                    <i class="bi bi-chevron-down"></i>
+                                    <span class="group_name">Test Group 2 (1)</span>
+                                    <div class="group_actions">
+                                        <button class="btn_icon"><i class="bi bi-plus"></i></button>
+                                        <button class="btn_icon"><i class="bi bi-three-dots-vertical"></i></button>
+                                    </div>
+                                </div>
+                                <div class="group_items">
+                                    <div class="kart_item">
+                                        <span class="kart_info">No.G2... RUNNING2.0</span>
+                                        <span class="status_badge empty">Empty</span>
+                                        <button class="btn_icon"><i class="bi bi-three-dots-vertical"></i></button>
+                                    </div>
+                                    <div class="kart_item">
+                                        <span class="kart_info">No.G2... RUNNING2.0</span>
+                                        <span class="status_badge empty">Empty</span>
+                                        <button class="btn_icon"><i class="bi bi-three-dots-vertical"></i></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="add_group_section">
@@ -123,8 +146,6 @@
                         </div>
                     </div>
 
-                    
-                    
                     <!-- Right Panel - Kart Details -->
                     <div class="kart_details_panel">
                         <div class="kart_details_header">
@@ -142,7 +163,7 @@
                                 <div class="action_buttons">
                                     <button class="btn btn_custom">Refresh</button>
                                     <button class="btn btn_custom" data-bs-toggle="modal" data-bs-target="#add_kart">Add Kart</button>
-                                    <button class="btn btn_custom">Set Model</button>
+                                    <button class="btn btn_custom" data-bs-toggle="modal" data-bs-target="#set_model">Set Model</button>
                                     <button class="btn btn_custom">Import kart</button>
                                     <button class="btn btn_custom">Export Kart</button>
                                 </div>
@@ -172,7 +193,7 @@
                                             <div class="card_id">Card Id:2</div>
                                         </div>
                                         <span class="status_badge empty">Empty</span>
-                                    </div>
+                                    </div>                                   
                                 </div>
                             </div>
                             
@@ -297,19 +318,89 @@
 
                 <!-- Add kart group -->
                 <div class="modal fade" id="add_kart_group" aria-labelledby="addkartgroup" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="addkartgroup">Add Kart Group</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="addkartgroup">Add Kart Group</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" placeholder="Kart Group Name">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-large btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn_custom">Save changes</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <input type="text" class="form-control" placeholder="Kart Group Name">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-large btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn_custom">Save changes</button>
-                    </div>
+                </div>
+                
+                <!-- Set Model Modal -->
+                <div class="modal fade" id="set_model" aria-labelledby="setModelLabel" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header border-0 pb-2">
+                                <h6 class="modal-title fs-5" id="setModelLabel">Set the brand and model</h6>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body py-3">
+                                <!-- Brand Input -->
+                                <div class="row align-items-center mb-4">
+                                    <div class="col-2">
+                                        <label class="form-label mb-0">Brand</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control border-secondary" id="brandInput" placeholder="">
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-danger btn-sm" id="refreshBrand">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <table class="table table-responsive results_table">
+                                    <tr>
+                                        <th>Model</th>
+                                        <th>Model Pic</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="mt-3">
+                                                <input type="text" class="form-control form-control-sm border-secondary" placeholder="Enter model name">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm" id="uploadModelPic">
+                                                + Upload
+                                            </button>
+                                            <input type="file" class="d-none" id="modelPicInput" accept="image/*">
+                                            <div class="upload-preview mt-2" style="display: none;">
+                                                <img id="previewImg" src="" alt="Preview" style="max-width: 80px; max-height: 60px; object-fit: cover;">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column gap-2">
+                                                <button type="button" class="btn btn-primary btn-sm">Add</button>
+                                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- Add more brand -->
+                                <div class="mt-3">
+                                    <button type="button" class="btn btn-link text-info p-0" id="addMoreBrand">
+                                        Add more brand
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-footer border-0 pt-2">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn_custom" id="saveModelSettings">Save</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -329,80 +420,125 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Modal form functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Kart Type button functionality
-            const kartTypeButtons = document.querySelectorAll('.kart-type-btn');
-            const selectedKartType = document.getElementById('selected-kart-type');
-            
-            kartTypeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    kartTypeButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    // Update hidden input
-                    selectedKartType.value = this.getAttribute('data-type');
-                });
-            });
+    // Upload button functionality
+    document.getElementById('uploadModelPic').addEventListener('click', function() {
+        document.getElementById('modelPicInput').click();
+    });
 
-            // Kart State button functionality
-            const kartStateButtons = document.querySelectorAll('.kart-state-btn');
-            const selectedKartState = document.getElementById('selected-kart-state');
-            
-            kartStateButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    kartStateButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    // Update hidden input
-                    selectedKartState.value = this.getAttribute('data-state');
-                });
-            });
-
-            // Brand button functionality (random brand names)
-            const brandButton = document.querySelector('.btn-success');
-            const brandInput = brandButton.previousElementSibling.previousElementSibling.querySelector('input');
-            
-            const randomBrands = [
-                '速羽', 'RacingPro', 'SpeedKart', 'ThunderRacing', 'VelocityMax', 
-                'TurboKart', 'LightningSpeed', 'RacingElite', 'SpeedDemon', 'KartMaster'
-            ];
-            
-            brandButton.addEventListener('click', function() {
-                const randomBrand = randomBrands[Math.floor(Math.random() * randomBrands.length)];
-                brandInput.value = randomBrand;
-            });
-
-            // Form validation
-            const addKartModal = document.getElementById('add_kart');
-            const saveButton = addKartModal.querySelector('.btn_custom');
-            
-            saveButton.addEventListener('click', function() {
-                const requiredFields = addKartModal.querySelectorAll('[required]');
-                let isValid = true;
+    // File upload preview
+    document.getElementById('modelPicInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.querySelector('.upload-preview');
+                const img = document.getElementById('previewImg');
+                img.src = e.target.result;
+                preview.style.display = 'block';
                 
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        field.classList.add('is-invalid');
-                        isValid = false;
-                    } else {
-                        field.classList.remove('is-invalid');
-                    }
-                });
-                
-                if (isValid) {
-                    // Here you would typically submit the form data
-                    alert('Kart added successfully!');
-                    // Close modal
-                    const modal = bootstrap.Modal.getInstance(addKartModal);
-                    modal.hide();
-                } else {
-                    alert('Please fill in all required fields.');
-                }
+                // Update upload button text
+                document.getElementById('uploadModelPic').textContent = 'Change';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Model name selection
+    document.querySelectorAll('.model-name').forEach(modelName => {
+        modelName.addEventListener('click', function() {
+            // Remove active state from all model names
+            document.querySelectorAll('.model-name').forEach(name => {
+                name.classList.remove('active');
+                name.style.backgroundColor = '';
             });
+            
+            // Add active state to clicked model
+            this.classList.add('active');
+            this.style.backgroundColor = '#007bff';
+            this.style.color = '#fff';
         });
+    });
+
+    // Add more brand functionality
+    document.getElementById('addMoreBrand').addEventListener('click', function() {
+        const brandInput = document.getElementById('brandInput');
+        // You can implement additional brand management logic here
+        alert('Add more brand functionality - can open a separate brand management interface');
+    });
+
+    // Refresh brand button
+    document.getElementById('refreshBrand').addEventListener('click', function() {
+        // Refresh/reload brand data
+        const brandInput = document.getElementById('brandInput');
+        brandInput.value = '';
+        alert('Brand data refreshed');
+    });
+
+    // Add new model functionality
+    const newModelInput = document.querySelector('input[placeholder="Enter model name"]');
+    newModelInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const modelName = this.value.trim();
+            if (modelName) {
+                // Add new model to the list
+                const modelListContainer = document.querySelector('.model-list-item');
+                const newModelDiv = document.createElement('div');
+                newModelDiv.className = 'model-name mb-2';
+                newModelDiv.textContent = modelName;
+                
+                // Add click event to new model
+                newModelDiv.addEventListener('click', function() {
+                    document.querySelectorAll('.model-name').forEach(name => {
+                        name.classList.remove('active');
+                        name.style.backgroundColor = '';
+                    });
+                    this.classList.add('active');
+                    this.style.backgroundColor = '#007bff';
+                    this.style.color = '#fff';
+                });
+                
+                modelListContainer.appendChild(newModelDiv);
+                this.value = '';
+            }
+        }
+    });
+
+    // Add and Delete button functionality
+    document.querySelector('.btn-primary').addEventListener('click', function() {
+        const selectedModel = document.querySelector('.model-name.active');
+        const brandName = document.getElementById('brandInput').value.trim();
+        
+        if (selectedModel && brandName) {
+            alert(`Added: ${brandName} - ${selectedModel.textContent}`);
+        } else {
+            alert('Please enter a brand name and select a model');
+        }
+    });
+
+    document.querySelector('.btn-danger').addEventListener('click', function() {
+        const selectedModel = document.querySelector('.model-name.active');
+        if (selectedModel && confirm('Delete this model?')) {
+            selectedModel.remove();
+        } else if (!selectedModel) {
+            alert('Please select a model to delete');
+        }
+    });
+
+    // Save functionality
+    document.getElementById('saveModelSettings').addEventListener('click', function() {
+        const brandName = document.getElementById('brandInput').value.trim();
+        const selectedModel = document.querySelector('.model-name.active');
+        
+        if (brandName && selectedModel) {
+            alert(`Settings saved for: ${brandName} - ${selectedModel.textContent}`);
+            const modal = bootstrap.Modal.getInstance(document.getElementById('set_model'));
+            modal.hide();
+        } else {
+            alert('Please enter a brand name and select a model before saving');
+        }
+    });
+});
     </script>
 </body>
 </html>
