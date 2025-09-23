@@ -286,6 +286,10 @@ h5 {
     padding-bottom: 60px;
 }
 
+.no_padding_bottom {
+    padding-bottom: 0 !important;
+}
+
 .no_data_wrap {
     display: flex;
     flex-direction: column;
