@@ -162,7 +162,9 @@
                                 <table class="table table-responsive results_table">
                                     <thead>
                                         <tr>
-                                            <th>Tick</th>
+                                            <th class="checkbox-cell">
+                                                <input type="checkbox" id="selectAll" onchange="toggleAllCheckboxes(this)">
+                                            </th>
                                             <th>Session No.</th>
                                             <th>Starting time</th>
                                             <th>End Time</th>
@@ -173,7 +175,28 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td colspan="7" class="no_data_message">No data</td>
+                                            <!-- <td colspan="7" class="no_data_message">No data</td> -->
+                                            <td class="checkbox-cell">
+                                                <input type="checkbox" class="row-checkbox" onchange="updateSelectAll()">
+                                            </td>
+                                            <td>1</td>
+                                            <td>12:01</td>
+                                            <td>12:31</td>
+                                            <td>1</td>
+                                            <td>30</td>
+                                            <td><a class="link-primary link-underline link-underline-opacity-0" href="http://">Print</a> <a class="link-danger link-underline link-underline-opacity-0" href="">Delete</a></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- <td colspan="7" class="no_data_message">No data</td> -->
+                                            <td class="checkbox-cell">
+                                                <input type="checkbox" class="row-checkbox" onchange="updateSelectAll()">
+                                            </td>
+                                            <td>1</td>
+                                            <td>12:01</td>
+                                            <td>12:31</td>
+                                            <td>1</td>
+                                            <td>30</td>
+                                            <td><a class="link-primary link-underline link-underline-opacity-0" href="http://">Print</a> <a class="link-danger link-underline link-underline-opacity-0" href="">Delete</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -204,8 +227,17 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td colspan="10" class="no_data_message">No data</td>
-                                        </tr>
+                                            <!-- <td colspan="10" class="no_data_message">No data</td> -->
+                                            <td>1</td>
+                                            <td>12:21</td>
+                                            <td>1</td>
+                                            <td>123</td>
+                                            <td>Me</td>
+                                            <td>1:01.001</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                            <td>10:53</td>
+                                        </tr>                                         
                                     </tbody>
                                 </table>
                             </div>
@@ -258,6 +290,38 @@
                 }
             });
         });
+
+        // Function to toggle all checkboxes when header checkbox is clicked
+        function toggleAllCheckboxes(selectAllCheckbox) {
+            const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+            
+            rowCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        }
+
+        // Function to update the "select all" checkbox based on individual row selections
+        function updateSelectAll() {
+            const selectAllCheckbox = document.getElementById('selectAll');
+            const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+            const checkedBoxes = document.querySelectorAll('.row-checkbox:checked');
+            
+            // If all rows are checked, check the select all checkbox
+            if (checkedBoxes.length === rowCheckboxes.length) {
+                selectAllCheckbox.checked = true;
+                selectAllCheckbox.indeterminate = false;
+            }
+            // If no rows are checked, uncheck the select all checkbox
+            else if (checkedBoxes.length === 0) {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = false;
+            }
+            // If some (but not all) rows are checked, show indeterminate state
+            else {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = true;
+            }
+        }
     </script>
 </body>
 </html>

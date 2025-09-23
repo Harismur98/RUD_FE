@@ -693,6 +693,16 @@ h5 {
     color: #666;
 }
 
+.checkbox-cell {
+    text-align: center;
+    width: 60px;
+}
+
+.checkbox-cell input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
 /* for kartsetup page */
 /* Kart Groups Panel */
 .kart_groups_panel {
