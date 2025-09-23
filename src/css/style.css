@@ -691,6 +691,7 @@ h5 {
     color: #666;
 }
 
+/* for kartsetup page */
 /* Kart Groups Panel */
 .kart_groups_panel {
     width: 320px;
@@ -751,6 +752,7 @@ h5 {
     padding: 12px 0;
     border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
+    
 }
 
 .group_header i {
@@ -769,6 +771,17 @@ h5 {
 .group_actions {
     display: flex;
     gap: 4px;
+}
+
+.group_header i.chevron {
+    color: #28a745;
+    margin-right: 8px;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.group_header.collapsed i.chevron {
+    transform: rotate(-90deg);
 }
 
 .btn_icon {
@@ -791,6 +804,21 @@ h5 {
 
 .group_items {
     padding-left: 24px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.group_items.collapsed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.group_items:not(.collapsed) {
+    max-height: 500px; /* Adjust based on your content */
+}
+
+.collapsed .kart_item {
+    opacity: 0;
 }
 
 .kart_item {
@@ -798,6 +826,7 @@ h5 {
     align-items: center;
     padding: 8px 0;
     font-size: 13px;
+    transition: opacity 0.2s ease;
 }
 
 .kart_info {

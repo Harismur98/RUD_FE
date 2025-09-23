@@ -73,9 +73,9 @@
                         <div class="kart_groups_content">
                             <!-- Test Group -->
                             <div class="kart_group_item">
-                                <div class="group_header">
-                                    <i class="bi bi-chevron-down"></i>
-                                    <span class="group_name">test group (2)</span>
+                                <div class="group_header" onclick="toggleGroup(this)">
+                                    <i class="bi bi-chevron-down chevron"></i>
+                                    <span class="group_name">tea group (2)</span>
                                     <div class="group_actions">
                                         <button class="btn_icon"><i class="bi bi-plus"></i></button>
                                         <button class="btn_icon"><i class="bi bi-three-dots-vertical"></i></button>
@@ -97,8 +97,8 @@
                             
                             <!-- Test Group 2 -->
                             <div class="kart_group_item">
-                                <div class="group_header">
-                                    <i class="bi bi-chevron-down"></i>
+                                <div class="group_header" onclick="toggleGroup(this)">
+                                    <i class="bi bi-chevron-down chevron"></i>
                                     <span class="group_name">Test Group 2 (1)</span>
                                     <div class="group_actions">
                                         <button class="btn_icon"><i class="bi bi-plus"></i></button>
@@ -115,8 +115,8 @@
                             </div>
 
                             <div class="kart_group_item">
-                                <div class="group_header">
-                                    <i class="bi bi-chevron-down"></i>
+                                <div class="group_header" onclick="toggleGroup(this)">
+                                    <i class="bi bi-chevron-down chevron"></i>
                                     <span class="group_name">Test Group 2 (1)</span>
                                     <div class="group_actions">
                                         <button class="btn_icon"><i class="bi bi-plus"></i></button>
@@ -411,6 +411,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+
+        function toggleGroup(header) {
+            const groupItems = header.nextElementSibling;
+            const isCollapsed = header.classList.contains('collapsed');
+            
+            if (isCollapsed) {
+                // Expand
+                header.classList.remove('collapsed');
+                groupItems.classList.remove('collapsed');
+            } else {
+                // Collapse
+                header.classList.add('collapsed');
+                groupItems.classList.add('collapsed');
+            }
+        }
         // Live Clock
         function updateClock() {
             const now = new Date();
@@ -423,124 +438,124 @@
         updateClock();
 
         document.addEventListener('DOMContentLoaded', function() {
-    // Upload button functionality
-    document.getElementById('uploadModelPic').addEventListener('click', function() {
-        document.getElementById('modelPicInput').click();
-    });
-
-    // File upload preview
-    document.getElementById('modelPicInput').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const preview = document.querySelector('.upload-preview');
-                const img = document.getElementById('previewImg');
-                img.src = e.target.result;
-                preview.style.display = 'block';
-                
-                // Update upload button text
-                document.getElementById('uploadModelPic').textContent = 'Change';
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    // Model name selection
-    document.querySelectorAll('.model-name').forEach(modelName => {
-        modelName.addEventListener('click', function() {
-            // Remove active state from all model names
-            document.querySelectorAll('.model-name').forEach(name => {
-                name.classList.remove('active');
-                name.style.backgroundColor = '';
-            });
-            
-            // Add active state to clicked model
-            this.classList.add('active');
-            this.style.backgroundColor = '#007bff';
-            this.style.color = '#fff';
+        // Upload button functionality
+        document.getElementById('uploadModelPic').addEventListener('click', function() {
+            document.getElementById('modelPicInput').click();
         });
-    });
 
-    // Add more brand functionality
-    document.getElementById('addMoreBrand').addEventListener('click', function() {
-        const brandInput = document.getElementById('brandInput');
-        // You can implement additional brand management logic here
-        alert('Add more brand functionality - can open a separate brand management interface');
-    });
+        // File upload preview
+        document.getElementById('modelPicInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.querySelector('.upload-preview');
+                    const img = document.getElementById('previewImg');
+                    img.src = e.target.result;
+                    preview.style.display = 'block';
+                    
+                    // Update upload button text
+                    document.getElementById('uploadModelPic').textContent = 'Change';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
 
-    // Refresh brand button
-    document.getElementById('refreshBrand').addEventListener('click', function() {
-        // Refresh/reload brand data
-        const brandInput = document.getElementById('brandInput');
-        brandInput.value = '';
-        alert('Brand data refreshed');
-    });
-
-    // Add new model functionality
-    const newModelInput = document.querySelector('input[placeholder="Enter model name"]');
-    newModelInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            const modelName = this.value.trim();
-            if (modelName) {
-                // Add new model to the list
-                const modelListContainer = document.querySelector('.model-list-item');
-                const newModelDiv = document.createElement('div');
-                newModelDiv.className = 'model-name mb-2';
-                newModelDiv.textContent = modelName;
-                
-                // Add click event to new model
-                newModelDiv.addEventListener('click', function() {
-                    document.querySelectorAll('.model-name').forEach(name => {
-                        name.classList.remove('active');
-                        name.style.backgroundColor = '';
-                    });
-                    this.classList.add('active');
-                    this.style.backgroundColor = '#007bff';
-                    this.style.color = '#fff';
+        // Model name selection
+        document.querySelectorAll('.model-name').forEach(modelName => {
+            modelName.addEventListener('click', function() {
+                // Remove active state from all model names
+                document.querySelectorAll('.model-name').forEach(name => {
+                    name.classList.remove('active');
+                    name.style.backgroundColor = '';
                 });
                 
-                modelListContainer.appendChild(newModelDiv);
-                this.value = '';
+                // Add active state to clicked model
+                this.classList.add('active');
+                this.style.backgroundColor = '#007bff';
+                this.style.color = '#fff';
+            });
+        });
+
+        // Add more brand functionality
+        document.getElementById('addMoreBrand').addEventListener('click', function() {
+            const brandInput = document.getElementById('brandInput');
+            // You can implement additional brand management logic here
+            alert('Add more brand functionality - can open a separate brand management interface');
+        });
+
+        // Refresh brand button
+        document.getElementById('refreshBrand').addEventListener('click', function() {
+            // Refresh/reload brand data
+            const brandInput = document.getElementById('brandInput');
+            brandInput.value = '';
+            alert('Brand data refreshed');
+        });
+
+        // Add new model functionality
+        const newModelInput = document.querySelector('input[placeholder="Enter model name"]');
+        newModelInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const modelName = this.value.trim();
+                if (modelName) {
+                    // Add new model to the list
+                    const modelListContainer = document.querySelector('.model-list-item');
+                    const newModelDiv = document.createElement('div');
+                    newModelDiv.className = 'model-name mb-2';
+                    newModelDiv.textContent = modelName;
+                    
+                    // Add click event to new model
+                    newModelDiv.addEventListener('click', function() {
+                        document.querySelectorAll('.model-name').forEach(name => {
+                            name.classList.remove('active');
+                            name.style.backgroundColor = '';
+                        });
+                        this.classList.add('active');
+                        this.style.backgroundColor = '#007bff';
+                        this.style.color = '#fff';
+                    });
+                    
+                    modelListContainer.appendChild(newModelDiv);
+                    this.value = '';
+                }
             }
-        }
-    });
+        });
 
-    // Add and Delete button functionality
-    document.querySelector('.btn-primary').addEventListener('click', function() {
-        const selectedModel = document.querySelector('.model-name.active');
-        const brandName = document.getElementById('brandInput').value.trim();
-        
-        if (selectedModel && brandName) {
-            alert(`Added: ${brandName} - ${selectedModel.textContent}`);
-        } else {
-            alert('Please enter a brand name and select a model');
-        }
-    });
+        // Add and Delete button functionality
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            const selectedModel = document.querySelector('.model-name.active');
+            const brandName = document.getElementById('brandInput').value.trim();
+            
+            if (selectedModel && brandName) {
+                alert(`Added: ${brandName} - ${selectedModel.textContent}`);
+            } else {
+                alert('Please enter a brand name and select a model');
+            }
+        });
 
-    document.querySelector('.btn-danger').addEventListener('click', function() {
-        const selectedModel = document.querySelector('.model-name.active');
-        if (selectedModel && confirm('Delete this model?')) {
-            selectedModel.remove();
-        } else if (!selectedModel) {
-            alert('Please select a model to delete');
-        }
-    });
+        document.querySelector('.btn-danger').addEventListener('click', function() {
+            const selectedModel = document.querySelector('.model-name.active');
+            if (selectedModel && confirm('Delete this model?')) {
+                selectedModel.remove();
+            } else if (!selectedModel) {
+                alert('Please select a model to delete');
+            }
+        });
 
-    // Save functionality
-    document.getElementById('saveModelSettings').addEventListener('click', function() {
-        const brandName = document.getElementById('brandInput').value.trim();
-        const selectedModel = document.querySelector('.model-name.active');
-        
-        if (brandName && selectedModel) {
-            alert(`Settings saved for: ${brandName} - ${selectedModel.textContent}`);
-            const modal = bootstrap.Modal.getInstance(document.getElementById('set_model'));
-            modal.hide();
-        } else {
-            alert('Please enter a brand name and select a model before saving');
-        }
+        // Save functionality
+        document.getElementById('saveModelSettings').addEventListener('click', function() {
+            const brandName = document.getElementById('brandInput').value.trim();
+            const selectedModel = document.querySelector('.model-name.active');
+            
+            if (brandName && selectedModel) {
+                alert(`Settings saved for: ${brandName} - ${selectedModel.textContent}`);
+                const modal = bootstrap.Modal.getInstance(document.getElementById('set_model'));
+                modal.hide();
+            } else {
+                alert('Please enter a brand name and select a model before saving');
+            }
+        });
     });
-});
     </script>
 </body>
 </html>
