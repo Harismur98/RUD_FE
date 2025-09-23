@@ -250,11 +250,11 @@
                                 <div class="mb-3">
                                     <label class="form-label">* Kart Type</label>
                                     <div class="d-flex flex-wrap gap-2">
-                                        <button type="button" class="btn btn-outline-secondary kart-type-btn" data-type="KID2.0">KID2.0</button>
-                                        <button type="button" class="btn btn-outline-secondary kart-type-btn" data-type="BABY2.0">BABY2.0</button>
-                                        <button type="button" class="btn btn-outline-secondary kart-type-btn" data-type="RUNNING2.0">RUNNING2.0</button>
-                                        <button type="button" class="btn btn-outline-secondary kart-type-btn" data-type="MINI">MINI</button>
-                                        <button type="button" class="btn btn-outline-secondary kart-type-btn" data-type="DOUBLE">DOUBLE</button>
+                                        <button type="button" class="btn btn-outline-secondary kart_type_btn" data-type="KID2.0">KID2.0</button>
+                                        <button type="button" class="btn btn-outline-secondary kart_type_btn" data-type="BABY2.0">BABY2.0</button>
+                                        <button type="button" class="btn btn-outline-secondary kart_type_btn" data-type="RUNNING2.0">RUNNING2.0</button>
+                                        <button type="button" class="btn btn-outline-secondary kart_type_btn" data-type="MINI">MINI</button>
+                                        <button type="button" class="btn btn-outline-secondary kart_type_btn" data-type="DOUBLE">DOUBLE</button>
                                     </div>
                                     <input type="hidden" id="selected-kart-type" name="kart-type" required>
                                 </div>
@@ -300,10 +300,10 @@
                                 <div class="mb-3">
                                     <label class="form-label">* Kart State</label>
                                     <div class="d-flex flex-wrap gap-2">
-                                        <button type="button" class="btn btn-outline-success kart-state-btn" data-state="Empty">Empty</button>
-                                        <button type="button" class="btn btn-outline-warning kart-state-btn" data-state="Using">Using</button>
-                                        <button type="button" class="btn btn-outline-danger kart-state-btn" data-state="Repairing">Repairing</button>
-                                        <button type="button" class="btn btn-outline-secondary kart-state-btn" data-state="Abandoned">Abandoned</button>
+                                        <button type="button" class="btn btn-outline-success kart_state_btn" data-state="Empty">Empty</button>
+                                        <button type="button" class="btn btn-outline-warning kart_state_btn" data-state="Using">Using</button>
+                                        <button type="button" class="btn btn-outline-danger kart_state_btn" data-state="Repairing">Repairing</button>
+                                        <button type="button" class="btn btn-outline-secondary kart_state_btn" data-state="Abandoned">Abandoned</button>
                                     </div>
                                     <input type="hidden" id="selected-kart-state" name="kart-state" required>
                                 </div>
@@ -377,13 +377,13 @@
         function createBrandSection() {
             brandCounter++;
             const brandSection = document.createElement('div');
-            brandSection.className = 'brand-section';
-            brandSection.id = `brand-section-${brandCounter}`;
+            brandSection.className = 'brand_section';
+            brandSection.id = `brand_section-${brandCounter}`;
             
             brandSection.innerHTML = `
-                <div class="brand-header">
+                <div class="brand_header">
                     <h6 class="mb-0">Brand ${brandCounter}</h6>
-                    ${brandCounter > 1 ? `<button type="button" class="btn btn-outline-danger btn-sm remove-brand-btn" onclick="removeBrandSection(${brandCounter})">
+                    ${brandCounter > 1 ? `<button type="button" class="btn btn-outline-danger btn-sm remove_brand_btn" onclick="removeBrandSection(${brandCounter})">
                         <i class="bi bi-trash"></i> Remove Brand
                     </button>` : ''}
                 </div>
@@ -442,7 +442,7 @@
                             <i class="bi bi-upload"></i> Upload
                         </button>
                         <input type="file" class="d-none model-pic-input" id="modelPicInput-${brandId}-${modelId}" accept="image/*" onchange="handleFileUpload(${brandId}, ${modelId})">
-                        <div class="upload-preview mt-2" id="preview-${brandId}-${modelId}" style="display: none;">
+                        <div class="upload_preview mt-2" id="preview-${brandId}-${modelId}" style="display: none;">
                             <img src="" alt="Preview" style="max-width: 80px; max-height: 60px; object-fit: cover;">
                         </div>
                     </td>
@@ -467,7 +467,7 @@
 
         // Remove a brand section
         function removeBrandSection(brandId) {
-            const brandSection = document.getElementById(`brand-section-${brandId}`);
+            const brandSection = document.getElementById(`brand_section-${brandId}`);
             if (brandSection) {
                 brandCounter--;
                 brandSection.remove();
@@ -533,7 +533,7 @@
             
             // Collect all data
             const brandsData = [];
-            const brandSections = document.querySelectorAll('.brand-section');
+            const brandSections = document.querySelectorAll('.brand_section');
             
             brandSections.forEach((section) => {
                 const brandId = section.id.split('-')[2];
@@ -571,7 +571,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Add initial brand section when modal opens
             document.getElementById('set_model').addEventListener('show.bs.modal', function() {
-                if (document.querySelectorAll('.brand-section').length === 0) {
+                if (document.querySelectorAll('.brand_section').length === 0) {
                     addBrandSection();
                 }
             });

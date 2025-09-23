@@ -269,7 +269,6 @@ h5 {
     font-weight: 500;
 }
 
-
 .selected-option {
     border-color: #28a745 !important;
     background-color: #e1f7e1 !important;
@@ -471,7 +470,6 @@ h5 {
     padding: 20px 24px;
     border-bottom: 5px solid #e9ecef;
     border-top: 5px solid #e9ecef;
-
 }
 
 .filter_row {
@@ -968,41 +966,41 @@ h5 {
 }
 
 /* Modal form styling */
-.kart-type-btn, .kart-state-btn {
+.kart_type_btn, .kart_state_btn {
     transition: all 0.2s ease;
     border-width: 2px;
 }
 
-.kart-type-btn.active, .kart-state-btn.active {
+.kart_type_btn.active, .kart_state_btn.active {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.kart-type-btn.active {
+.kart_type_btn.active {
     background-color: #2d5a2d;
     border-color: #2d5a2d;
     color: white;
 }
 
-.kart-state-btn.active[data-state="Empty"] {
+.kart_state_btn.active[data-state="Empty"] {
     background-color: #28a745;
     border-color: #28a745;
     color: white;
 }
 
-.kart-state-btn.active[data-state="Using"] {
+.kart_state_btn.active[data-state="Using"] {
     background-color: #ffc107;
     border-color: #ffc107;
     color: #212529;
 }
 
-.kart-state-btn.active[data-state="Repairing"] {
+.kart_state_btn.active[data-state="Repairing"] {
     background-color: #dc3545;
     border-color: #dc3545;
     color: white;
 }
 
-.kart-state-btn.active[data-state="Abandoned"] {
+.kart_state_btn.active[data-state="Abandoned"] {
     background-color: #6c757d;
     border-color: #6c757d;
     color: white;
@@ -1035,24 +1033,24 @@ h5 {
     margin-bottom: 1.5rem !important;
 }
 
-.brand-section {
+.brand_section {
     border: 1px solid #dee2e6;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
     background-color: #f8f9fa;
 }
-.brand-header {
+.brand_header {
     display: flex;
     justify-content: between;
     align-items: center;
     margin-bottom: 15px;
 }
-.upload-preview img {
+.upload_preview img {
     border-radius: 4px;
     border: 1px solid #ddd;
 }
-.remove-brand-btn {
+.remove_brand_btn {
     margin-left: auto;
 }
 .modal-body {
