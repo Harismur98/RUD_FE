@@ -608,7 +608,7 @@ h5 {
     border-bottom: 1px solid #f0f0f0;
     text-align: center;
     color: #333333;
-    font-size: 14px;
+    font-size: 14px;    
 }
 
 .no_data_message {
@@ -693,12 +693,12 @@ h5 {
     color: #666;
 }
 
-.checkbox-cell {
+.checkbox_cell {
     text-align: center;
     width: 60px;
 }
 
-.checkbox-cell input[type="checkbox"] {
+.checkbox_cell input[type="checkbox"] {
     transform: scale(1.2);
     cursor: pointer;
 }
@@ -857,6 +857,11 @@ h5 {
 .status_badge.empty {
     background: #d4edda;
     color: #155724;
+}
+
+.status_badge.using {
+    background: #f0b7b7;
+    color: #dd5736;
 }
 
 .add_group_section {
